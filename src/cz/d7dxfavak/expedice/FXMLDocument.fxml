@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane fx:id="tabPaneMain" prefHeight="950.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.d7dxfavak.expedice.FXMLDocumentController">
+   <tabs>
+      <Tab fx:id="expediceTab" closable="false" text="Expedice">
+         <content>
+            <VBox prefHeight="900.0" prefWidth="765.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="765.0">
+                     <children>
+                        <Label text="Dodací list:">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="15.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="textFieldCisloLiefer" onAction="#nacistLieferSchein" prefHeight="77.0" prefWidth="295.0">
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="buttonNacistLiefer" mnemonicParsing="false" onAction="#nacistLieferSchein" prefHeight="77.0" prefWidth="252.0" text="Načíst">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <ScrollPane fitToHeight="true" prefHeight="1000.0" prefWidth="765.0" vbarPolicy="ALWAYS">
+                     <content>
+                        <TableView fx:id="tablePruvodky" prefHeight="572.0" prefWidth="751.0">
+                          <columns>
+                            <TableColumn fx:id="poradiColumn" prefWidth="72.0" style=".table-row-cell fx-background-color: #FBFBFB;" text="Poz." />
+                            <TableColumn fx:id="pruvodkaColumn" prefWidth="147.0" text="Průvodka" />
+                              <TableColumn fx:id="vykresColumn" prefWidth="175.0" text="Výkres" />
+                              <TableColumn fx:id="soucastColumn" minWidth="0.0" prefWidth="259.0" text="Název" />
+                              <TableColumn fx:id="vyrobenoColumn" minWidth="5.0" prefWidth="94.0" text="Kusů" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+                  <HBox alignment="TOP_CENTER" maxHeight="442.0" prefHeight="75.0" prefWidth="765.0">
+                     <children>
+                        <Button fx:id="buttonSmazatList" mnemonicParsing="false" onAction="#buttonSmazatList" prefHeight="51.0" prefWidth="188.0" text="Smazat vše">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="buttonNacistPruvodka" mnemonicParsing="false" onAction="#buttonNacistPruvodku" prefHeight="51.0" prefWidth="239.0" text="Načíst průvodku">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="buttonPotvrditExpedici" mnemonicParsing="false" onAction="#buttonPotvrditExpedici" prefHeight="51.0" prefWidth="247.0" text="Potvrdit expedici">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </Tab>
+      <Tab fx:id="kooperaceTab" closable="false" text="Kooperace">
+         <content>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ScrollPane fitToHeight="true" prefHeight="900.0" prefWidth="765.0" vbarPolicy="ALWAYS">
+                     <content>
+                        <TableView fx:id="tablePruvodkyKoop" prefHeight="750.0" prefWidth="751.0">
+                           <columns>
+                              <TableColumn fx:id="pruvodkaKoopColumn" prefWidth="99.0" text="Průvodka" />
+                              <TableColumn fx:id="vykresKoopColumn" prefWidth="169.0" text="Výkres" />
+                              <TableColumn fx:id="zpracovaniKoopColumn" prefWidth="130.0" text="Zpracování" />
+                              <TableColumn fx:id="datumOdeslaniKoopColumn" minWidth="0.0" prefWidth="100.0" text="Odeslání" />
+                              <TableColumn fx:id="odeslanoKusuKoopColumn" minWidth="5.0" prefWidth="79.0" text="Kusů" />
+                              <TableColumn fx:id="datumPrijetiKoopColumn" minWidth="0.0" prefWidth="100.0" text="Přijetí" />
+                              <TableColumn fx:id="prijatoKusuKoopColumn" minWidth="5.0" prefWidth="72.0" text="Kusů" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+                  <HBox alignment="TOP_CENTER" maxHeight="442.0" prefHeight="75.0" prefWidth="765.0">
+                     <children>
+                        <Button fx:id="buttonNacistPruvodkaKoop" mnemonicParsing="false" onAction="#buttonNacistPruvodkuKooperace" prefHeight="51.0" prefWidth="378.0" text="Načíst průvodku">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>
